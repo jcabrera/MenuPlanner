@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  AddMealViewController.h
 //  MenuPlanner
 //
 //  Created by Jennifer Cabrera on 1/20/15.
@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MealItem.h"
 
-@interface FirstViewController : UIViewController
+@interface AddMealViewController : UIViewController
 
+@property MealItem *mealItem;
 
 @end
-

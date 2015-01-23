@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		D4F63AE21A6EBD0000E29B97 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F63AE11A6EBD0000E29B97 /* main.m */; };
 		D4F63AE51A6EBD0000E29B97 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F63AE41A6EBD0000E29B97 /* AppDelegate.m */; };
-		D4F63AE81A6EBD0000E29B97 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F63AE71A6EBD0000E29B97 /* FirstViewController.m */; };
 		D4F63AEB1A6EBD0000E29B97 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F63AEA1A6EBD0000E29B97 /* SecondViewController.m */; };
 		D4F63AEE1A6EBD0000E29B97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F63AEC1A6EBD0000E29B97 /* Main.storyboard */; };
 		D4F63AF01A6EBD0000E29B97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4F63AEF1A6EBD0000E29B97 /* Images.xcassets */; };
 		D4F63AF31A6EBD0000E29B97 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F63AF11A6EBD0000E29B97 /* LaunchScreen.xib */; };
 		D4F63AFF1A6EBD0000E29B97 /* MenuPlannerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F63AFE1A6EBD0000E29B97 /* MenuPlannerTests.m */; };
+		D4F63B0A1A6EC95400E29B97 /* AddMealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F63B091A6EC95400E29B97 /* AddMealViewController.m */; };
+		D4F63B161A6FFFB400E29B97 /* MealItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F63B151A6FFFB400E29B97 /* MealItem.m */; };
+		D4F63B191A70176B00E29B97 /* MealListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F63B181A70176B00E29B97 /* MealListTableViewController.m */; };
+		D4F63B1B1A70371E00E29B97 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F63B1A1A70371E00E29B97 /* CoreData.framework */; };
+		D4F63B1E1A70381B00E29B97 /* MealListModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4F63B1C1A70381B00E29B97 /* MealListModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,8 +37,6 @@
 		D4F63AE11A6EBD0000E29B97 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D4F63AE31A6EBD0000E29B97 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D4F63AE41A6EBD0000E29B97 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D4F63AE61A6EBD0000E29B97 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		D4F63AE71A6EBD0000E29B97 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		D4F63AE91A6EBD0000E29B97 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		D4F63AEA1A6EBD0000E29B97 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		D4F63AED1A6EBD0000E29B97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -43,6 +45,14 @@
 		D4F63AF81A6EBD0000E29B97 /* MenuPlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MenuPlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F63AFD1A6EBD0000E29B97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4F63AFE1A6EBD0000E29B97 /* MenuPlannerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuPlannerTests.m; sourceTree = "<group>"; };
+		D4F63B081A6EC95400E29B97 /* AddMealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMealViewController.h; sourceTree = "<group>"; };
+		D4F63B091A6EC95400E29B97 /* AddMealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMealViewController.m; sourceTree = "<group>"; };
+		D4F63B141A6FFFB400E29B97 /* MealItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealItem.h; sourceTree = "<group>"; };
+		D4F63B151A6FFFB400E29B97 /* MealItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealItem.m; sourceTree = "<group>"; };
+		D4F63B171A70176B00E29B97 /* MealListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealListTableViewController.h; sourceTree = "<group>"; };
+		D4F63B181A70176B00E29B97 /* MealListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealListTableViewController.m; sourceTree = "<group>"; };
+		D4F63B1A1A70371E00E29B97 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D4F63B1D1A70381B00E29B97 /* MealListModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MealListModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4F63B1B1A70371E00E29B97 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +77,7 @@
 		D4F63AD31A6EBD0000E29B97 = {
 			isa = PBXGroup;
 			children = (
+				D4F63B1A1A70371E00E29B97 /* CoreData.framework */,
 				D4F63ADE1A6EBD0000E29B97 /* MenuPlanner */,
 				D4F63AFB1A6EBD0000E29B97 /* MenuPlannerTests */,
 				D4F63ADD1A6EBD0000E29B97 /* Products */,
@@ -86,14 +98,19 @@
 			children = (
 				D4F63AE31A6EBD0000E29B97 /* AppDelegate.h */,
 				D4F63AE41A6EBD0000E29B97 /* AppDelegate.m */,
-				D4F63AE61A6EBD0000E29B97 /* FirstViewController.h */,
-				D4F63AE71A6EBD0000E29B97 /* FirstViewController.m */,
 				D4F63AE91A6EBD0000E29B97 /* SecondViewController.h */,
 				D4F63AEA1A6EBD0000E29B97 /* SecondViewController.m */,
 				D4F63AEC1A6EBD0000E29B97 /* Main.storyboard */,
+				D4F63B141A6FFFB400E29B97 /* MealItem.h */,
+				D4F63B151A6FFFB400E29B97 /* MealItem.m */,
+				D4F63B081A6EC95400E29B97 /* AddMealViewController.h */,
+				D4F63B091A6EC95400E29B97 /* AddMealViewController.m */,
 				D4F63AEF1A6EBD0000E29B97 /* Images.xcassets */,
 				D4F63AF11A6EBD0000E29B97 /* LaunchScreen.xib */,
 				D4F63ADF1A6EBD0000E29B97 /* Supporting Files */,
+				D4F63B171A70176B00E29B97 /* MealListTableViewController.h */,
+				D4F63B181A70176B00E29B97 /* MealListTableViewController.m */,
+				D4F63B1C1A70381B00E29B97 /* MealListModel.xcdatamodeld */,
 			);
 			path = MenuPlanner;
 			sourceTree = "<group>";
@@ -224,10 +241,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4F63B191A70176B00E29B97 /* MealListTableViewController.m in Sources */,
 				D4F63AEB1A6EBD0000E29B97 /* SecondViewController.m in Sources */,
+				D4F63B161A6FFFB400E29B97 /* MealItem.m in Sources */,
 				D4F63AE51A6EBD0000E29B97 /* AppDelegate.m in Sources */,
-				D4F63AE81A6EBD0000E29B97 /* FirstViewController.m in Sources */,
+				D4F63B1E1A70381B00E29B97 /* MealListModel.xcdatamodeld in Sources */,
 				D4F63AE21A6EBD0000E29B97 /* main.m in Sources */,
+				D4F63B0A1A6EC95400E29B97 /* AddMealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +450,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D4F63B1C1A70381B00E29B97 /* MealListModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D4F63B1D1A70381B00E29B97 /* MealListModel.xcdatamodel */,
+			);
+			currentVersion = D4F63B1D1A70381B00E29B97 /* MealListModel.xcdatamodel */;
+			path = MealListModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D4F63AD41A6EBD0000E29B97 /* Project object */;
 }
