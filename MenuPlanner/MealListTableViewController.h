@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MagicalRecord/CoreData+MagicalRecord.h>
+#import <AMRatingControl.h>
+@class Meal;
+
 
 @interface MealListTableViewController : UITableViewController
 
+@property (nonatomic, strong) Meal *meal;
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue;
 
 @end

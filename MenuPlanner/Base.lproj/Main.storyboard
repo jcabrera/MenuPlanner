@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -18,18 +19,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New meal" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="exN-SW-Awz">
-                                <rect key="frame" x="16" y="285" width="568" height="30"/>
+                                <rect key="frame" x="16" y="90" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="RE6-q3-uZQ">
+                                <rect key="frame" x="0.0" y="135" width="600" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="446163794.793486">
+                                    <!--2015-02-20 22:23:14 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-31582800">
+                                    <!--2000-01-01 11:00:00 +0000-->
+                                </date>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qL-bw-a00">
+                                <rect key="frame" x="16" y="374" width="54.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="exN-SW-Awz" secondAttribute="centerY" id="0ef-wb-p4R"/>
+                            <constraint firstItem="0qL-bw-a00" firstAttribute="top" secondItem="RE6-q3-uZQ" secondAttribute="bottom" constant="77" id="Jex-D7-Hfn"/>
+                            <constraint firstItem="0qL-bw-a00" firstAttribute="leading" secondItem="2YF-ge-Xfe" secondAttribute="leadingMargin" id="KHD-bW-5I3"/>
+                            <constraint firstAttribute="centerX" secondItem="RE6-q3-uZQ" secondAttribute="centerX" id="MNa-1X-xC2"/>
+                            <constraint firstItem="exN-SW-Awz" firstAttribute="top" secondItem="Zc4-o4-VHf" secondAttribute="bottom" constant="26" id="VFq-N5-LbD"/>
                             <constraint firstItem="exN-SW-Awz" firstAttribute="leading" secondItem="2YF-ge-Xfe" secondAttribute="leadingMargin" id="X5j-V5-gCL"/>
+                            <constraint firstItem="RE6-q3-uZQ" firstAttribute="leading" secondItem="2YF-ge-Xfe" secondAttribute="leadingMargin" constant="-16" id="XGy-dd-CJD"/>
                             <constraint firstItem="exN-SW-Awz" firstAttribute="trailing" secondItem="2YF-ge-Xfe" secondAttribute="trailingMargin" id="qvA-bW-geO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RE6-q3-uZQ" secondAttribute="trailing" constant="-16" id="sgK-2Y-169"/>
+                            <constraint firstItem="RE6-q3-uZQ" firstAttribute="top" secondItem="exN-SW-Awz" secondAttribute="bottom" constant="15" id="tnq-fM-vDF"/>
                             <constraint firstAttribute="centerX" secondItem="exN-SW-Awz" secondAttribute="centerX" id="umJ-Tp-Mjk"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0ef-wb-p4R"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Meal" id="Qa4-gA-S0n">
@@ -46,6 +74,8 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="lastEaten" destination="RE6-q3-uZQ" id="0FR-HD-b04"/>
+                        <outlet property="ratingLabel" destination="0qL-bw-a00" id="BOa-tw-Gnb"/>
                         <outlet property="saveButton" destination="MIC-K9-QKf" id="qEs-rx-eBx"/>
                         <outlet property="textField" destination="exN-SW-Awz" id="PN1-Cc-p1S"/>
                     </connections>
@@ -53,7 +83,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oxZ-Og-G7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="xyj-xB-eGQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3002" y="-320"/>
+            <point key="canvasLocation" x="2980" y="292"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
@@ -114,11 +144,11 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--First-->
+        <!--Meal List-->
         <scene sceneID="FsD-B2-TyF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4ce-fe-25s" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Meal List" image="first" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9sy-6P-0PS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -142,11 +172,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ListPrototypeCell" id="Qac-LF-698">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ListPrototypeCell" textLabel="g6E-PK-WC4" detailTextLabel="aA9-pc-Eu6" style="IBUITableViewCellStyleSubtitle" id="Qac-LF-698">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qac-LF-698" id="Bsd-Ye-lNV">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g6E-PK-WC4">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aA9-pc-Eu6">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Q8W-Ep-MG7" kind="show" identifier="EditMeal" id="e9N-tI-aqP"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -157,14 +204,66 @@
                     <navigationItem key="navigationItem" title="Meal List" id="Gda-Sp-t7u">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dIo-eh-C7k">
                             <connections>
-                                <segue destination="CUp-o7-fwD" kind="presentation" id="LJF-sa-mlO"/>
+                                <segue destination="CUp-o7-fwD" kind="show" id="x7K-Xp-uFx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IKd-kp-CKg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1368" y="-320"/>
+            <point key="canvasLocation" x="1527" y="-336"/>
+        </scene>
+        <!--Edit Meal-->
+        <scene sceneID="kfe-Uc-TlN">
+            <objects>
+                <viewController title="Edit Meal" id="Q8W-Ep-MG7" customClass="EditMealViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GMf-OF-Ehs"/>
+                        <viewControllerLayoutGuide type="bottom" id="VgY-N9-Wbm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b97-ZH-AMO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="fHE-oI-RWc">
+                                <rect key="frame" x="287" y="84" width="26" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Isz-S9-WXi">
+                                <rect key="frame" x="140" y="144" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="446497637.16409898">
+                                    <!--2015-02-24 19:07:17 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Isz-S9-WXi" firstAttribute="top" secondItem="fHE-oI-RWc" secondAttribute="bottom" constant="30" id="2js-FG-3BK"/>
+                            <constraint firstAttribute="centerX" secondItem="fHE-oI-RWc" secondAttribute="centerX" id="PNd-tt-tpk"/>
+                            <constraint firstAttribute="centerX" secondItem="fHE-oI-RWc" secondAttribute="centerX" id="h8p-5i-Jhh"/>
+                            <constraint firstItem="fHE-oI-RWc" firstAttribute="top" secondItem="GMf-OF-Ehs" secondAttribute="bottom" constant="20" id="moB-Ku-nee"/>
+                            <constraint firstAttribute="centerX" secondItem="Isz-S9-WXi" secondAttribute="centerX" id="vsQ-kb-3iR"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="3D6-jM-8Cm">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="UBO-ia-ujm">
+                            <connections>
+                                <action selector="saveEditedMeal:" destination="Q8W-Ep-MG7" id="4ja-Lr-mMo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mealDatePicker" destination="Isz-S9-WXi" id="Q3u-gJ-MAO"/>
+                        <outlet property="mealNameTextField" destination="fHE-oI-RWc" id="FIe-KR-3m9"/>
+                        <outlet property="saveButton" destination="UBO-ia-ujm" id="ed3-0v-TYY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gfe-WI-pc1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2190" y="416"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UHe-ON-0eo">

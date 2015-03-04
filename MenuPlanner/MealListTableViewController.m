@@ -7,14 +7,11 @@
 //
 
 #import "MealListTableViewController.h"
-#import "MealItem.h"
 #import "AddMealViewController.h"
 #import "AppDelegate.h"
+#import "Meal.h"
+#import "EditMealViewController.h"
 
-static NSString * const kMealEntityName = @"Meal";
-static NSString * const kMealNameKey = @"mealName";
-static NSString * const kMealRatingKey = @"mealRating";
-static NSString * const kLastDateKey = @"lastDate";
 
 @interface MealListTableViewController ()
 
@@ -26,9 +23,9 @@ static NSString * const kLastDateKey = @"lastDate";
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
     AddMealViewController *source = [segue sourceViewController];
-    MealItem *item = source.mealItem;
-    if (item != nil) {
-        [self.mealItems addObject:item];
+    self.meal = source.meal;
+    if (self.meal != nil) {
+        [self.mealItems addObject:self.meal];
         [self.tableView reloadData];
     }
     
@@ -39,23 +36,8 @@ static NSString * const kLastDateKey = @"lastDate";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    NSManagedObjectContext *context = [appDelegate managedObjectContext];
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:kMealEntityName];
+   
     
-    NSError *error;
-    NSArray *objects = [context executeFetchRequest:request error:&error];
-    if (objects == nil) {
-        NSLog(@"There was an error!");
-        //Do whatever error handling is appropriate
-    }
-    self.mealItems = [[NSMutableArray alloc] init];
-    for (NSManagedObject *oneObject in objects) {
-        MealItem *item = [[MealItem alloc] init];
-        item.mealName = [oneObject valueForKey:kMealNameKey];
-        [self.mealItems addObject:item];
-        [self.tableView reloadData];
-        NSLog(@"%@", item.mealName);
         
         UIApplication *app = [UIApplication sharedApplication];
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -71,16 +53,24 @@ static NSString * const kLastDateKey = @"lastDate";
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self fetchAllMeals];
+    
+    [self.tableView reloadData];
 }
 
 - (void)applicationWillResignActive:(NSNotification *)notification {
+    
+    
+    /*
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
     NSError *error;
     for (int i = 0; i < [self.mealItems count]; i++) {
-        MealItem *item = [[MealItem alloc] init];
-        item = self.mealItems[i];
-        NSString *mealName = item.mealName;
+        Meal *meal = self.mealItems[i];
+        NSString *mealName = meal.mealName;
         NSLog(@"resigning: %@", mealName);
         NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:kMealEntityName];
         NSPredicate *pred = [NSPredicate predicateWithFormat:@"(%K = %s)", kMealNameKey, mealName];
@@ -100,7 +90,8 @@ static NSString * const kLastDateKey = @"lastDate";
             [theMeal setValue:[NSString stringWithString:mealName] forKey:kMealNameKey];
            
         }
-         [appDelegate saveContext];
+     */
+    
         
     }
 
@@ -108,6 +99,15 @@ static NSString * const kLastDateKey = @"lastDate";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)fetchAllMeals {
+    // 1. Get the sort key
+    // NSString *sortKey = [[NSUserDefaults standardUserDefaults] objectForKey:WB_SORT_KEY];
+    // 2. Determine if it is ascending
+    //BOOL ascending = [sortKey isEqualToString:SORT_KEY_RATING] ? NO : YES;
+    // 3. Fetch entities with MagicalRecord
+    self.mealItems = [[Meal MR_findAllSortedBy:@"lastDate" ascending:YES] mutableCopy];
 }
 
 #pragma mark - Table view data source
@@ -121,16 +121,18 @@ static NSString * const kLastDateKey = @"lastDate";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    NSLog(@"mealItems count = %lu", (unsigned long)[self.mealItems count]);
     return [self.mealItems count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListPrototypeCell" forIndexPath:indexPath];
     
-    MealItem *mealItem = [self.mealItems objectAtIndex:indexPath.row];
-    cell.textLabel.text = mealItem.mealName;
-    NSLog(@"cell title %@", mealItem.mealName);
+    Meal *meal = [self.mealItems objectAtIndex:indexPath.row];
+    cell.textLabel.text = meal.mealName;
+    NSString *dateString = [NSDateFormatter localizedStringFromDate:meal.lastDate
+                                                          dateStyle:NSDateFormatterShortStyle
+                                                          timeStyle:NSDateFormatterNoStyle];
+    cell.detailTextLabel.text = dateString;
     
     return cell;
 }
@@ -169,20 +171,28 @@ static NSString * const kLastDateKey = @"lastDate";
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([ segue.identifier isEqualToString:@"EditMeal"]) {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    EditMealViewController *editVC = (EditMealViewController *)[segue destinationViewController];
+    Meal *selectedMeal = self.mealItems[indexPath.row];
+        editVC.meal = selectedMeal;}
+    
+    
 }
-*/
+
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     //code to execute when a row is tapped. See "Tutorial: Add Data" for more
+   
 }
 
 @end

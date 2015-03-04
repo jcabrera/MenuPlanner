@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MenuPlanner/MealListTableViewController.m"
-            timestampString = "443655477.551679"
+            timestampString = "447096924.761922"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "@implementation MealListTableViewController"
             landmarkType = "3">
          </BreakpointContent>

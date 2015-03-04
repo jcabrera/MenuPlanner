@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MealItem.h"
+#import "Meal.h"
+#define MR_SHORTHAND
+#import <MagicalRecord/CoreData+MagicalRecord.h>
+#import <AMRatingControl.h>
+
+@class AMRatingControl;
 
 @interface AddMealViewController : UIViewController
 
-@property MealItem *mealItem;
+@property Meal *meal;
+@property (strong, nonatomic) IBOutlet AMRatingControl *ratingControl;
 
 @end
