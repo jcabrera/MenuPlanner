@@ -24,17 +24,13 @@
 
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
-    if ([segue  isEqual: @"AddMealSaveUnwind"]){
-    AddMealViewController *source = [segue sourceViewController];
-    self.meal = source.meal;
-    if (self.meal != nil) {
-        [self.mealItems addObject:self.meal];}
+   
         
      [self fetchAllMeals];
     [self.tableView reloadData];
     }
     
-}
+
  
 
 
@@ -131,20 +127,27 @@
 }
 
 
-
-/*
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
+        Meal *mealToRemove = self.mealItems[indexPath.row];
+        [mealToRemove MR_deleteEntity];
+        [self saveContext];
+        [self.mealItems removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+       
 }
-*/
+}
 
-
+- (void)saveContext {
+        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+            if (success) {
+                NSLog(@"You successfully saved your context.");
+            } else if (error) {
+                NSLog(@"Error saving context: %@", error.description);
+            }
+        }];
+        
+    }
 
 
 

@@ -52,8 +52,6 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.mealNameTextField resignFirstResponder];
-    //[self saveContext];
-    // Save context as view disappears
     
 }
 

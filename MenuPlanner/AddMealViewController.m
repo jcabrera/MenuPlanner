@@ -47,8 +47,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.textField resignFirstResponder];
-    // Save context as view disappears
-    [self saveContext];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -109,6 +108,7 @@
         self.meal.mealName = self.textField.text;
         self.meal.lastDate = self.lastEaten.date;
         self.meal.mealRating = @(self.ratingControl.rating);
+        [self saveContext];
        
     }
 }

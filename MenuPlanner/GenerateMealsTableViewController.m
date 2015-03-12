@@ -32,11 +32,10 @@
     [super viewWillAppear:animated];
     [self fetchAllMeals];
     self.myMeals = [[NSMutableArray alloc] init];
+    if (self.numberOfMeals > [self.mealItems count]) {self.numberOfMeals = [self.mealItems count];}
     for (int i=0; i < self.numberOfMeals; i++) {
         Meal *currentMeal = self.mealItems[i];
-        NSLog(@"Current meal name: %@", currentMeal.mealName);
         self.myMeals[i] = currentMeal.mealName;
-        NSLog(@"My Meals: %@", self.myMeals[i]);
         
     }
     [self.tableView reloadData];
@@ -72,7 +71,6 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MealCell" forIndexPath:indexPath];
     
     cell.textLabel.text = self.myMeals[indexPath.row];
-    NSLog(@"Table cell: %@", self.myMeals[indexPath.row]);
     
     return cell;
 }
