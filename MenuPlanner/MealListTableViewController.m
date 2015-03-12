@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "Meal.h"
 #import "EditMealViewController.h"
+#import "MealTableViewCell.h"
 
 
 @interface MealListTableViewController ()
@@ -21,29 +22,26 @@
 
 @implementation MealListTableViewController
 
+
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
+    if ([segue  isEqual: @"AddMealSaveUnwind"]){
     AddMealViewController *source = [segue sourceViewController];
     self.meal = source.meal;
     if (self.meal != nil) {
-        [self.mealItems addObject:self.meal];
-        [self.tableView reloadData];
+        [self.mealItems addObject:self.meal];}
+        
+     [self fetchAllMeals];
+    [self.tableView reloadData];
     }
     
 }
+ 
 
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-   
-    
-        
-        UIApplication *app = [UIApplication sharedApplication];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(applicationWillResignActive:)
-                                                     name:UIApplicationWillResignActiveNotification
-                                                   object:app];
+
        
     }
     
@@ -62,36 +60,6 @@
 }
 
 - (void)applicationWillResignActive:(NSNotification *)notification {
-    
-    
-    /*
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    NSManagedObjectContext *context = [appDelegate managedObjectContext];
-    NSError *error;
-    for (int i = 0; i < [self.mealItems count]; i++) {
-        Meal *meal = self.mealItems[i];
-        NSString *mealName = meal.mealName;
-        NSLog(@"resigning: %@", mealName);
-        NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:kMealEntityName];
-        NSPredicate *pred = [NSPredicate predicateWithFormat:@"(%K = %s)", kMealNameKey, mealName];
-        [request setPredicate:pred];
-        NSArray *objects = [context executeFetchRequest:request error:&error];
-        if (objects == nil) {
-            NSLog(@"There was an error!");
-            // Do whatever error handling is appropriate
-        }
-            NSManagedObject *theMeal = nil;
-            if ([objects count] > 0) {
-                theMeal = [objects objectAtIndex:0];
-            }
-                else {
-                    theMeal = [NSEntityDescription insertNewObjectForEntityForName:kMealEntityName inManagedObjectContext:context];
-                }
-            [theMeal setValue:[NSString stringWithString:mealName] forKey:kMealNameKey];
-           
-        }
-     */
-    
         
     }
 
@@ -124,26 +92,45 @@
     return [self.mealItems count];
 }
 
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListPrototypeCell" forIndexPath:indexPath];
-    
-    Meal *meal = [self.mealItems objectAtIndex:indexPath.row];
-    cell.textLabel.text = meal.mealName;
-    NSString *dateString = [NSDateFormatter localizedStringFromDate:meal.lastDate
-                                                          dateStyle:NSDateFormatterShortStyle
-                                                          timeStyle:NSDateFormatterNoStyle];
-    cell.detailTextLabel.text = dateString;
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"
+                                                            forIndexPath:indexPath];
+    [self configureCell:cell atIndex:indexPath];
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)configureCell:(UITableViewCell*)cell atIndex:(NSIndexPath*)indexPath {
+   
+    
+    // Get current meal
+    Meal *currentMeal = [self.mealItems objectAtIndex:indexPath.row];
+    cell.textLabel.text = currentMeal.mealName;
+    NSString *dateString = [NSDateFormatter localizedStringFromDate:currentMeal.lastDate
+                                                          dateStyle:NSDateFormatterShortStyle
+                                                          timeStyle:NSDateFormatterNoStyle];
+    cell.detailTextLabel.text = dateString;
+    // Setup AMRatingControl
+    AMRatingControl *ratingControl;
+   if (![cell viewWithTag:20]) {
+        ratingControl = [[AMRatingControl alloc] initWithLocation:CGPointMake(190, 24)
+                                                     andMaxRating:5];
+        ratingControl.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+        ratingControl.userInteractionEnabled = NO;
+       ratingControl.tag = 20;
+    [cell addSubview:ratingControl];
+   } else {
+       ratingControl = (AMRatingControl*)[cell viewWithTag:20];
+   }
+    // Put meal rating in cell
+    ratingControl.rating = [currentMeal.mealRating integerValue];
+   
+
+
 }
-*/
+
+
 
 /*
 // Override to support editing the table view.
@@ -157,19 +144,9 @@
 }
 */
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+
+
 
 
 #pragma mark - Navigation
@@ -180,7 +157,8 @@
     // Pass the selected object to the new view controller.
     if ([ segue.identifier isEqualToString:@"EditMeal"]) {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    EditMealViewController *editVC = (EditMealViewController *)[segue destinationViewController];
+    UINavigationController *navController = [segue destinationViewController];
+    EditMealViewController *editVC = (EditMealViewController *)[navController viewControllers][0];
     Meal *selectedMeal = self.mealItems[indexPath.row];
         editVC.meal = selectedMeal;}
     

@@ -13,7 +13,6 @@
 @interface EditMealViewController : UIViewController
 
 @property (strong, nonatomic) Meal *meal;
-@property (strong, nonatomic) IBOutlet AMRatingControl *ratingControl;
 
 
 

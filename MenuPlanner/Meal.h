@@ -15,7 +15,7 @@
 @interface Meal : NSManagedObject
 
 @property (nonatomic, retain) NSString * mealName;
-@property (nonatomic, strong) NSNumber * mealRating;
+@property (nonatomic, assign) NSNumber *mealRating;
 @property (nonatomic, retain) NSDate * lastDate;
 
 @end

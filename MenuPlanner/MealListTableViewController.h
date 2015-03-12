@@ -9,12 +9,16 @@
 #import <UIKit/UIKit.h>
 #import <MagicalRecord/CoreData+MagicalRecord.h>
 #import <AMRatingControl.h>
+#import "MealTableViewCell.h"
+
 @class Meal;
 
 
 @interface MealListTableViewController : UITableViewController
 
 @property (nonatomic, strong) Meal *meal;
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue;
+
+- (void)fetchAllMeals;
+
 
 @end

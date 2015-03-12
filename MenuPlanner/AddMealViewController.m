@@ -8,7 +8,7 @@
 
 #import "AddMealViewController.h"
 
-@interface AddMealViewController () <UIGestureRecognizerDelegate>
+@interface AddMealViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (weak, nonatomic) IBOutlet UIDatePicker *lastEaten;
@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[self textField] setDelegate:self];
     CGPoint ratingLocation = {self.ratingLabel.frame.origin.x +self.ratingLabel.frame.size.width+10, self.ratingLabel.frame.origin.y + 52};
     self.ratingControl = [[AMRatingControl alloc] initWithLocation:(CGPoint)ratingLocation
                                                       andMaxRating:5];
@@ -30,9 +31,18 @@
                            action:@selector(updateRating)
                  forControlEvents:UIControlEventEditingChanged];
       [self.view addSubview:self.ratingControl];
-  
-    
+    [self.lastEaten addTarget:self action:@selector(pickerChanged:)               forControlEvents:UIControlEventValueChanged];
+
+   
 }
+
+- (void)pickerChanged:(id)sender
+{
+    
+    [self.textField resignFirstResponder];
+}
+
+
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -51,8 +61,15 @@
         self.title = textField.text;
         self.meal.mealName = textField.text;
     }
+    NSLog(@"textFieldDidEndEditing");
     [self.textField resignFirstResponder];
+    [self.view endEditing:YES];
+  
 }
+
+
+
+
 
 - (void)cancelAdd {
     [self.meal MR_deleteEntity];
@@ -92,6 +109,7 @@
         self.meal.mealName = self.textField.text;
         self.meal.lastDate = self.lastEaten.date;
         self.meal.mealRating = @(self.ratingControl.rating);
+       
     }
 }
 

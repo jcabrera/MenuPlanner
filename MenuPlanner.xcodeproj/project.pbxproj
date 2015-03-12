@@ -11,9 +11,11 @@
 		D41A10891A8BD40500DDCC45 /* MealModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D41A10871A8BD40500DDCC45 /* MealModel.xcdatamodeld */; };
 		D41A108C1A8BDE5000DDCC45 /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = D41A108B1A8BDE5000DDCC45 /* Meal.m */; };
 		D41A10C71A9CF1CB00DDCC45 /* EditMealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D41A10C61A9CF1CB00DDCC45 /* EditMealViewController.m */; };
+		D4F415C01AAA7D9F00485993 /* MealTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F415BF1AAA7D9F00485993 /* MealTableViewCell.m */; };
+		D4F415C31AADF9E000485993 /* MealPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F415C21AADF9E000485993 /* MealPlanViewController.m */; };
+		D4F415C61AAE2BE100485993 /* GenerateMealsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F415C51AAE2BE100485993 /* GenerateMealsTableViewController.m */; };
 		D4F63AE21A6EBD0000E29B97 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F63AE11A6EBD0000E29B97 /* main.m */; };
 		D4F63AE51A6EBD0000E29B97 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F63AE41A6EBD0000E29B97 /* AppDelegate.m */; };
-		D4F63AEB1A6EBD0000E29B97 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F63AEA1A6EBD0000E29B97 /* SecondViewController.m */; };
 		D4F63AEE1A6EBD0000E29B97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F63AEC1A6EBD0000E29B97 /* Main.storyboard */; };
 		D4F63AF01A6EBD0000E29B97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4F63AEF1A6EBD0000E29B97 /* Images.xcassets */; };
 		D4F63AF31A6EBD0000E29B97 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F63AF11A6EBD0000E29B97 /* LaunchScreen.xib */; };
@@ -44,13 +46,17 @@
 		D41A108B1A8BDE5000DDCC45 /* Meal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meal.m; sourceTree = "<group>"; };
 		D41A10C51A9CF1CB00DDCC45 /* EditMealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditMealViewController.h; sourceTree = "<group>"; };
 		D41A10C61A9CF1CB00DDCC45 /* EditMealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditMealViewController.m; sourceTree = "<group>"; };
+		D4F415BE1AAA7D9F00485993 /* MealTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealTableViewCell.h; sourceTree = "<group>"; };
+		D4F415BF1AAA7D9F00485993 /* MealTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealTableViewCell.m; sourceTree = "<group>"; };
+		D4F415C11AADF9E000485993 /* MealPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealPlanViewController.h; sourceTree = "<group>"; };
+		D4F415C21AADF9E000485993 /* MealPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealPlanViewController.m; sourceTree = "<group>"; };
+		D4F415C41AAE2BE100485993 /* GenerateMealsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenerateMealsTableViewController.h; sourceTree = "<group>"; };
+		D4F415C51AAE2BE100485993 /* GenerateMealsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenerateMealsTableViewController.m; sourceTree = "<group>"; };
 		D4F63ADC1A6EBD0000E29B97 /* MenuPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F63AE01A6EBD0000E29B97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4F63AE11A6EBD0000E29B97 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D4F63AE31A6EBD0000E29B97 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D4F63AE41A6EBD0000E29B97 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D4F63AE91A6EBD0000E29B97 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		D4F63AEA1A6EBD0000E29B97 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		D4F63AED1A6EBD0000E29B97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D4F63AEF1A6EBD0000E29B97 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D4F63AF21A6EBD0000E29B97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -131,9 +137,11 @@
 				D41A10831A8BCA5600DDCC45 /* Podfile */,
 				D4F63AE31A6EBD0000E29B97 /* AppDelegate.h */,
 				D4F63AE41A6EBD0000E29B97 /* AppDelegate.m */,
-				D4F63AE91A6EBD0000E29B97 /* SecondViewController.h */,
-				D4F63AEA1A6EBD0000E29B97 /* SecondViewController.m */,
+				D4F415C11AADF9E000485993 /* MealPlanViewController.h */,
+				D4F415C21AADF9E000485993 /* MealPlanViewController.m */,
 				D4F63AEC1A6EBD0000E29B97 /* Main.storyboard */,
+				D4F415C41AAE2BE100485993 /* GenerateMealsTableViewController.h */,
+				D4F415C51AAE2BE100485993 /* GenerateMealsTableViewController.m */,
 				D4F63B081A6EC95400E29B97 /* AddMealViewController.h */,
 				D4F63B091A6EC95400E29B97 /* AddMealViewController.m */,
 				D4F63AEF1A6EBD0000E29B97 /* Images.xcassets */,
@@ -143,6 +151,8 @@
 				D4F63B181A70176B00E29B97 /* MealListTableViewController.m */,
 				D41A10C51A9CF1CB00DDCC45 /* EditMealViewController.h */,
 				D41A10C61A9CF1CB00DDCC45 /* EditMealViewController.m */,
+				D4F415BE1AAA7D9F00485993 /* MealTableViewCell.h */,
+				D4F415BF1AAA7D9F00485993 /* MealTableViewCell.m */,
 			);
 			path = MenuPlanner;
 			sourceTree = "<group>";
@@ -309,11 +319,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4F415C61AAE2BE100485993 /* GenerateMealsTableViewController.m in Sources */,
+				D4F415C01AAA7D9F00485993 /* MealTableViewCell.m in Sources */,
 				D41A108C1A8BDE5000DDCC45 /* Meal.m in Sources */,
 				D4F63B191A70176B00E29B97 /* MealListTableViewController.m in Sources */,
-				D4F63AEB1A6EBD0000E29B97 /* SecondViewController.m in Sources */,
 				D41A10891A8BD40500DDCC45 /* MealModel.xcdatamodeld in Sources */,
 				D4F63AE51A6EBD0000E29B97 /* AppDelegate.m in Sources */,
+				D4F415C31AADF9E000485993 /* MealPlanViewController.m in Sources */,
 				D4F63AE21A6EBD0000E29B97 /* main.m in Sources */,
 				D4F63B0A1A6EC95400E29B97 /* AddMealViewController.m in Sources */,
 				D41A10C71A9CF1CB00DDCC45 /* EditMealViewController.m in Sources */,

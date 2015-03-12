@@ -8,10 +8,12 @@
 
 #import "EditMealViewController.h"
 
-@interface EditMealViewController ()
+@interface EditMealViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *mealNameTextField;
 @property (weak, nonatomic) IBOutlet UIDatePicker *mealDatePicker;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
+@property (strong, nonatomic) IBOutlet AMRatingControl *ratingControl;
 
 @end
 
@@ -19,26 +21,38 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[self mealNameTextField] setDelegate:self];
     self.mealNameTextField.text = self.meal.mealName;
     if (self.meal.lastDate) {
         self.mealDatePicker.date = self.meal.lastDate;}
-    //CGPoint ratingLocation = {self.mealDatePicker.frame.origin.x, self.mealDatePicker.frame.origin.y + 280};
-    //AMRatingControl *ratingControl = [[AMRatingControl alloc] initWithLocation:(CGPoint)ratingLocation
-    //                                                              andMaxRating:5];
-   
-    if (self.meal.mealRating) {
-        self.ratingControl.rating = (NSUInteger)self.meal.mealRating;}
+    CGPoint ratingLocation = {self.mealDatePicker.frame.origin.x, self.mealDatePicker.frame.origin.y + 280};
+    if (!self.ratingControl) {
+        self.ratingControl = [[AMRatingControl alloc] initWithLocation:(CGPoint)ratingLocation
+                                                                                andMaxRating:5];
+    }
+    if ([self.meal.mealRating integerValue] <= 5) {
+        self.ratingControl.rating = [self.meal.mealRating integerValue];}
+    else {self.ratingControl.rating = 0;}
     //ratingControl.starSpacing = 5;
-    //[ratingControl addTarget:self
-      //                     action:@selector(updateRating)
-        //         forControlEvents:UIControlEventEditingChanged];
+    [self.ratingControl addTarget:self
+                           action:@selector(updateRating)
+                 forControlEvents:UIControlEventEditingChanged];
     [self.view addSubview:self.ratingControl];
+    [self.mealDatePicker addTarget:self action:@selector(pickerChanged:)               forControlEvents:UIControlEventValueChanged];
     
 }
+
+- (void)pickerChanged:(id)sender
+{
+    
+    [self.mealNameTextField resignFirstResponder];
+}
+ 
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.mealNameTextField resignFirstResponder];
+    //[self saveContext];
     // Save context as view disappears
     
 }
@@ -54,17 +68,26 @@
         
     }
     [textField resignFirstResponder];
+    [self.view endEditing:YES];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    if(![touch.view isMemberOfClass:[UITextField class]]) {
+        [touch.view endEditing:YES];
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+    if (theTextField == self.mealNameTextField) {
+        [theTextField resignFirstResponder];
+    }
+    return YES;
 }
 
 
 
 
-- (IBAction)saveEditedMeal:(id)sender {
-    self.meal.mealName = self.mealNameTextField.text;
-    self.meal.lastDate = self.mealDatePicker.date;
-    [self saveContext];
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
 - (void)saveContext {
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
@@ -77,35 +100,26 @@
     
 }
 
-- (AMRatingControl*)ratingControl {
-    if (!_ratingControl) {
-        CGPoint ratingLocation = {self.mealDatePicker.frame.origin.x, self.mealDatePicker.frame.origin.y + 280};
-        _ratingControl = [[AMRatingControl alloc] initWithLocation:ratingLocation
-                                                      andMaxRating:5];
-        _ratingControl.starSpacing = 5;
-        [_ratingControl addTarget:self
-                           action:@selector(updateRating)
-                 forControlEvents:UIControlEventEditingChanged];
-    }
-    return _ratingControl;
-}
+
 
 - (void)updateRating {
     self.meal.mealRating = @(self.ratingControl.rating);
     NSLog(@"updateRating called. mealRating = %@", self.meal.mealRating);
 }
 
+
 #pragma mark - Navigation
 
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- if (sender != self.saveButton) {
- return;}
- else {
-     NSLog(@"prepareForSegue in Edit Meal");
- self.meal.mealName = self.mealNameTextField.text;
- self.meal.lastDate = self.mealDatePicker.date;
+     if (sender != self.saveButton) return; else
+     {
+     self.meal.mealName = self.mealNameTextField.text;
+     self.meal.lastDate = self.mealDatePicker.date;
      self.meal.mealRating = @(self.ratingControl.rating);
+         [self saveContext];}
+     
+
  }
- }
+
 
 @end
