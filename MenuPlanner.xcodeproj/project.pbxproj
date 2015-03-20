@@ -11,6 +11,7 @@
 		D41A10891A8BD40500DDCC45 /* MealModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D41A10871A8BD40500DDCC45 /* MealModel.xcdatamodeld */; };
 		D41A108C1A8BDE5000DDCC45 /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = D41A108B1A8BDE5000DDCC45 /* Meal.m */; };
 		D41A10C71A9CF1CB00DDCC45 /* EditMealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D41A10C61A9CF1CB00DDCC45 /* EditMealViewController.m */; };
+		D4CD683A1AB9D99600344AA5 /* ThisWeekTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CD68391AB9D99600344AA5 /* ThisWeekTableViewController.m */; };
 		D4F415C01AAA7D9F00485993 /* MealTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F415BF1AAA7D9F00485993 /* MealTableViewCell.m */; };
 		D4F415C31AADF9E000485993 /* MealPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F415C21AADF9E000485993 /* MealPlanViewController.m */; };
 		D4F415C61AAE2BE100485993 /* GenerateMealsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F415C51AAE2BE100485993 /* GenerateMealsTableViewController.m */; };
@@ -46,6 +47,8 @@
 		D41A108B1A8BDE5000DDCC45 /* Meal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meal.m; sourceTree = "<group>"; };
 		D41A10C51A9CF1CB00DDCC45 /* EditMealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditMealViewController.h; sourceTree = "<group>"; };
 		D41A10C61A9CF1CB00DDCC45 /* EditMealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditMealViewController.m; sourceTree = "<group>"; };
+		D4CD68381AB9D99600344AA5 /* ThisWeekTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThisWeekTableViewController.h; sourceTree = "<group>"; };
+		D4CD68391AB9D99600344AA5 /* ThisWeekTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThisWeekTableViewController.m; sourceTree = "<group>"; };
 		D4F415BE1AAA7D9F00485993 /* MealTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealTableViewCell.h; sourceTree = "<group>"; };
 		D4F415BF1AAA7D9F00485993 /* MealTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealTableViewCell.m; sourceTree = "<group>"; };
 		D4F415C11AADF9E000485993 /* MealPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealPlanViewController.h; sourceTree = "<group>"; };
@@ -140,6 +143,8 @@
 				D4F415C11AADF9E000485993 /* MealPlanViewController.h */,
 				D4F415C21AADF9E000485993 /* MealPlanViewController.m */,
 				D4F63AEC1A6EBD0000E29B97 /* Main.storyboard */,
+				D4CD68381AB9D99600344AA5 /* ThisWeekTableViewController.h */,
+				D4CD68391AB9D99600344AA5 /* ThisWeekTableViewController.m */,
 				D4F415C41AAE2BE100485993 /* GenerateMealsTableViewController.h */,
 				D4F415C51AAE2BE100485993 /* GenerateMealsTableViewController.m */,
 				D4F63B081A6EC95400E29B97 /* AddMealViewController.h */,
@@ -325,6 +330,7 @@
 				D4F63B191A70176B00E29B97 /* MealListTableViewController.m in Sources */,
 				D41A10891A8BD40500DDCC45 /* MealModel.xcdatamodeld in Sources */,
 				D4F63AE51A6EBD0000E29B97 /* AppDelegate.m in Sources */,
+				D4CD683A1AB9D99600344AA5 /* ThisWeekTableViewController.m in Sources */,
 				D4F415C31AADF9E000485993 /* MealPlanViewController.m in Sources */,
 				D4F63AE21A6EBD0000E29B97 /* main.m in Sources */,
 				D4F63B0A1A6EC95400E29B97 /* AddMealViewController.m in Sources */,

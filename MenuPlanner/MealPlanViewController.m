@@ -24,6 +24,10 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -38,6 +42,17 @@
 
         GenerateMealsTableViewController *editVC = (GenerateMealsTableViewController *)[segue destinationViewController];
         editVC.numberOfMeals = self.howManyMeals;
+    //self.planExists = [PlanExists MR_createEntity];
+    //self.meal.mealName = self.textField.text;
+    //self.meal.lastDate = self.lastEaten.date;
+    //self.meal.mealRating = @(self.ratingControl.rating);
+    //[self saveContext];
+    //self.planExists = TRUE;
+     //self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"New plan" style:UIBarButtonItemStylePlain target:nil action:nil];
+}
+
+- (void)performSegueWithIdentifier:(UIStoryboardSegue *)segue sender:(id)sender {
+
 }
 
 
