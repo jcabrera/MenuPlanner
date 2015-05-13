@@ -60,7 +60,6 @@
         self.title = textField.text;
         self.meal.mealName = textField.text;
     }
-    NSLog(@"textFieldDidEndEditing");
     [self.textField resignFirstResponder];
     [self.view endEditing:YES];
   
@@ -68,7 +67,7 @@
 
 
 
-
+/*
 
 - (void)cancelAdd {
     [self.meal MR_deleteEntity];
@@ -78,7 +77,7 @@
 - (void)addNewMeal {
     [self.navigationController popViewControllerAnimated:YES];
 }
-
+*/
 
 // Updates rating
 - (void)updateRating {

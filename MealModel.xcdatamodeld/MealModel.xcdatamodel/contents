@@ -5,7 +5,17 @@
         <attribute name="mealName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mealRating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
+    <entity name="Plan" syncable="YES">
+        <attribute name="day0" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="day1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="day2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="day3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="day4" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="day5" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="day6" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Meal" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Plan" positionX="-63" positionY="9" width="128" height="150"/>
     </elements>
 </model>

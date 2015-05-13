@@ -11,5 +11,6 @@
 
 @interface GenerateMealsTableViewController : UITableViewController
 @property long numberOfMeals;
+@property (assign, nonatomic) NSInteger rowToBeEdited;
 
 @end

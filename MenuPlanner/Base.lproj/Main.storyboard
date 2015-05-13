@@ -151,13 +151,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2328" y="416"/>
+            <point key="canvasLocation" x="3044" y="434"/>
         </scene>
-        <!--This Week-->
+        <!--Tentative Plan-->
         <scene sceneID="z4Y-4J-h3V">
             <objects>
-                <tableViewController id="HMA-Sd-Cwc" customClass="GenerateMealsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ZzL-N4-V78">
+                <tableViewController id="HMA-Sd-Cwc" userLabel="Tentative Plan" customClass="GenerateMealsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="33" sectionHeaderHeight="22" sectionFooterHeight="22" id="ZzL-N4-V78">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -167,6 +167,31 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FKi-n5-YQV" id="Ake-9e-CwN">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="B5b-QR-KoV" kind="presentation" identifier="ChangeMeal" id="OBc-dD-Ycz"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ButtonCell" id="ezi-y0-ogg">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ezi-y0-ogg" id="4dd-cZ-oTo">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFk-tq-DeK">
+                                            <rect key="frame" x="222.5" y="1" width="155" height="30"/>
+                                            <state key="normal" title="Save This Week's Plan">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="saveWeeklyPlan:" destination="HMA-Sd-Cwc" eventType="touchUpInside" id="2r0-aX-WOY"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerX" secondItem="qFk-tq-DeK" secondAttribute="centerX" id="274-7Q-6zg"/>
+                                        <constraint firstAttribute="centerY" secondItem="qFk-tq-DeK" secondAttribute="centerY" id="tDZ-bX-suW"/>
+                                    </constraints>
+                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -174,12 +199,66 @@
                             <outlet property="delegate" destination="HMA-Sd-Cwc" id="BVI-TX-xLa"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="This Week" id="7bw-a3-PDp"/>
-                    <navigationItem key="navigationItem" id="BXT-9P-XZm"/>
+                    <navigationItem key="navigationItem" id="BXT-9P-XZm">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="ZGo-lS-eep"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editButton" destination="ZGo-lS-eep" id="mlE-cX-gzf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6j-pq-fKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3022" y="434"/>
+            <point key="canvasLocation" x="3834" y="434"/>
+        </scene>
+        <!--Specific Meal View Controller-->
+        <scene sceneID="aaM-jp-ke6">
+            <objects>
+                <viewController id="Apd-LX-uQh" customClass="SpecificMealViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GPu-21-jfI"/>
+                        <viewControllerLayoutGuide type="bottom" id="omh-Va-KZ5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="a4z-ZI-bNo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of meal" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C7y-hQ-ifr">
+                                <rect key="frame" x="245.5" y="282" width="110.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nmp-La-Aai">
+                                <rect key="frame" x="140" y="20" width="320" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Apd-LX-uQh" id="mAZ-OP-git"/>
+                                    <outlet property="delegate" destination="Apd-LX-uQh" id="3sG-a8-NYZ"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="C7y-hQ-ifr" firstAttribute="top" secondItem="Nmp-La-Aai" secondAttribute="bottom" constant="100" id="LMs-Ta-0fe"/>
+                            <constraint firstAttribute="centerX" secondItem="C7y-hQ-ifr" secondAttribute="centerX" id="OOJ-uD-F7H"/>
+                            <constraint firstItem="Nmp-La-Aai" firstAttribute="top" secondItem="a4z-ZI-bNo" secondAttribute="topMargin" constant="20" id="Zfa-19-jeP"/>
+                            <constraint firstAttribute="centerX" secondItem="Nmp-La-Aai" secondAttribute="centerX" id="egd-e5-hB7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="v0K-Lj-Qgb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="dtA-Pz-LDV">
+                            <connections>
+                                <segue destination="O4y-25-5HK" kind="unwind" unwindAction="unwindToMealPlan:" id="s0b-l4-Ir0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="dtA-Pz-LDV" id="QoE-fI-NRj"/>
+                        <outlet property="textField" destination="C7y-hQ-ifr" id="c6a-TR-say"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IoY-Nt-jpG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="O4y-25-5HK" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="5331" y="434"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -194,7 +273,7 @@
                     <connections>
                         <segue destination="4ce-fe-25s" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="pZI-dv-QcL" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="HMA-Sd-Cwc" kind="relationship" relationship="viewControllers" id="qJn-ig-Pky"/>
+                        <segue destination="GYF-Fg-yZG" kind="relationship" relationship="viewControllers" id="gv8-Yj-NUS"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -401,7 +480,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="sWY-KD-czj">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MealCell" id="sWY-KD-czj">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sWY-KD-czj" id="G9H-kc-Oi5">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -417,7 +496,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XUZ-ry-1rJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1600" y="1054"/>
+            <point key="canvasLocation" x="1436" y="1146"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FlA-Xk-ole">
@@ -438,30 +517,45 @@
             <point key="canvasLocation" x="2110" y="-426"/>
         </scene>
         <!--This Week-->
-        <scene sceneID="XyC-5e-fNl">
+        <scene sceneID="S1a-1v-qQJ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lr6-pI-zch" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="This Week" id="t1a-05-gFR" userLabel="This Week"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GYF-Fg-yZG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="This Week" id="5CI-ah-KmI"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kOS-o8-FPu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="69d-yE-TJb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Eio-O8-29j" kind="relationship" relationship="rootViewController" id="Hs3-MS-IYO"/>
+                        <segue destination="Eio-O8-29j" kind="relationship" relationship="rootViewController" id="K69-oD-6Eg"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wgl-cW-GRr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pLl-ms-ODd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="788" y="1054"/>
+            <point key="canvasLocation" x="516" y="1126"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QGx-CN-wec">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B5b-QR-KoV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZyV-dU-diH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Apd-LX-uQh" kind="relationship" relationship="rootViewController" id="u2a-WD-MtJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BCM-y4-Y9n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4519" y="434"/>
         </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="qJn-ig-Pky"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -42,6 +42,8 @@
 
         GenerateMealsTableViewController *editVC = (GenerateMealsTableViewController *)[segue destinationViewController];
         editVC.numberOfMeals = self.howManyMeals;
+        AppDelegate *appDelegate = [[UIApplication  sharedApplication] delegate];
+        appDelegate.tentativePlanExists = NO;
     //self.planExists = [PlanExists MR_createEntity];
     //self.meal.mealName = self.textField.text;
     //self.meal.lastDate = self.lastEaten.date;
